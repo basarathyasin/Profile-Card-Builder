@@ -25,9 +25,15 @@ form.addEventListener("submit", function(e){
     const fullName = document.getElementById("fname").value;
     const userName = document.getElementById("username").value;
     const password = document.getElementById("password").value;
+
+    const newUser = new User (fullName,userName,password,profilePic);
+    newUser.createAccount();
+    newUser.showDetails();
+
+    localStorage.setItem("userProfile", JSON.stringify(newUser));
+    console.log(localStorage.getItem("userProfile"));
+
+    window.location.href = "profile.html";
     
-
-
-
-
+    form.clear();
 })
